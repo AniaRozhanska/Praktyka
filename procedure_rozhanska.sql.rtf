@@ -29,3 +29,26 @@ mysql> CREATE PROCEDURE kometa_in_galaktyka_2 (IN Kometa_id INT)\
     ->     )\
     ->     WHERE ID = Kometa_id;\
     -> END $$}
+
+
+
+SELECT AVG(rozmir) AS seredniy_rozmir
+    -> FROM Suputnyk;
+
+
+mysql> SELECT * FROM Kosmichna_stancija WHERE YEAR(rik_zapusku) < 1999;
+
+mysql> CREATE VIEW nazva.teleskopu AS  SELECT Teleskop.typ,
+    -> Galaktyka.id
+    -> FROM Teleskop, Galaktyka;
+
+mysql> SELECT t.nazva AS teleskop,
+    ->        COUNT(g.ID) AS kilkist_galaktik
+    -> FROM Teleskop t
+    -> LEFT JOIN GALAKTYKA g ON t.ID = g.teleskop_id
+    -> GROUP BY t.ID, t.nazva;
+
+mysql> CREATE VIEW nazva_teleskopu AS
+    -> SELECT Teleskop.typ, Galaktyka.ID
+    -> FROM Teleskop
+    -> JOIN Galaktyka ON Galaktyka.teleskop_id = Teleskop.ID;
